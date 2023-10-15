@@ -1,11 +1,25 @@
 import React from "react";
 import Link from "next/link";
 
-
-import { client } from "E:/ecommerce/ctrlaltelite/lib/client";
+// import { client } from "E:/ecommerce/ctrlaltelite/lib/client";
 //import { HeadBanner } from "E:/ecommerce/ctrlaltelite/components";
 
-const Sell = () => (
+const shoesize = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const clothingsize = ["XS", "S", "M", "L", "XL", "XXL"];
+
+function sizeType() {
+  if (clothingType.value == "shoes") {
+    shoesize.forEach(
+      (e) => (selectsize.innerHTML += `<option value=${e}">${e}</option>`)
+    );
+  } else {
+    clothingsize.forEach(
+      (e) => (selectsize.innerHTML += `<option value=${e}">${e}</option>`)
+    );
+  }
+}
+
+const Sell = (sizeType) => (
   <div>
     <html lang="en">
       <head>
@@ -168,7 +182,6 @@ const Sell = () => (
                 </label>
                 <input
                   type="text"
-                  class="form-control"
                   id="sellName"
                   placeholder="Enter your name"
                   required
@@ -225,6 +238,21 @@ const Sell = () => (
               <div class="mb-3">
                 <div class="row">
                   <div class="col">
+                    <label for="itemGender" class="form-label">
+                      Gender
+                    </label>
+                    <select
+                      id="selectGender"
+                      class="form-select form-select-sm"
+                      aria-label="Small select example"
+                    >
+                      {/* <!-- <option selected>Open this select menu</option> --> */}
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                      <option value="3">Unisex</option>
+                    </select>
+
+                    <label for="itemSize" class="form-label"></label>
                     <label for="itemType" class="form-label">
                       Item type
                     </label>
@@ -242,12 +270,12 @@ const Sell = () => (
                     <label for="itemSize" class="form-label">
                       Item size
                     </label>
+
                     <select
                       id="selectsize"
                       class="form-select form-select-sm"
                       aria-label="Small select example"
                     >
-                      {/* <!-- <option selected>Open this select menu</option> --> */}
                       <option value="1">XXS</option>
                       <option value="2">XS</option>
                       <option value="3">S</option>
@@ -255,9 +283,25 @@ const Sell = () => (
                       <option value="5">L</option>
                       <option value="6">XL</option>
                       <option value="7">XXL</option>
+                      {/* <script>
+                        siz = document.getElementById('selectsize');
+                        siz.addEventListener("change", sizeType); sizeType();
+                      </script> */}
+                      {/* <!-- <option selected>Open this select menu</option> --> */}
                     </select>
                   </div>
+
                   <div class="col">
+                    <label for="itemName" class="form-label">
+                      Brand
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="itemName"
+                      placeholder="Enter the brand of the item"
+                    />
+
                     <label for="itemCondition" class="form-label">
                       Item Condition
                     </label>
@@ -284,14 +328,17 @@ const Sell = () => (
                 </div>
               </div>
 
-              <div>
+              <div class="form-control">
                 <label>Try our new AI feature.</label>
                 <label>
                   This feature will genarate a suggested price range for your
                   item to sell your item quickly and maximise your proffits
                 </label>
-                <button>genarate price</button>
-                <label></label> {/* The modle output should be disaplayed here **************************************************************  */}
+                <button class="btn btn-outline-success b-3">
+                  genarate price
+                </button>
+                <label></label>{" "}
+                {/* The modle output should be disaplayed here **************************************************************  */}
               </div>
 
               <div class="mb-3">
