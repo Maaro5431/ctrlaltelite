@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.heading-checkout {
+    font-size: 50px; /* Adjust the font size as needed */
+    font-family: cursive;
+    color: #000000; /* Change the color as needed */
+    padding-top: 30px;
+}
