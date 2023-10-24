@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { urlFor } from "E:/ecommerce/ctrlaltelite/lib/client";
+import { urlFor } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/lib/client";
 
 const HeadBanner = ({ headBanner }) => {
   return (

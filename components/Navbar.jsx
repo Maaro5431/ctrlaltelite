@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai'
 
 import { Cart } from './';
-import { useStateContext } from "E:/ecommerce/ctrlaltelite/context/StateContext.js";
-import { urlFor } from "E:/ecommerce/ctrlaltelite/lib/client";
+import { useStateContext } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/context/StateContext.js";
+import { urlFor } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/lib/client";
 
 
 

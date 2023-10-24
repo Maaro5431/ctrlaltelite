@@ -1,7 +1,7 @@
 import React from "react";
 
-import { client } from "E:/ecommerce/ctrlaltelite/lib/client";
-import { Product, HeadBanner } from "E:/ecommerce/ctrlaltelite/components";
+import { client } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/lib/client";
+import { Product, HeadBanner } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/components";
 
 const Catalog = ({ products, bannerData }) => (
   <div>

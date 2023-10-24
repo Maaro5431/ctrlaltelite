@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { client } from "E:/ecommerce/ctrlaltelite/lib/client";
+import { client } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/lib/client";
 
 const Checkout = () => (
   <html lang="en">

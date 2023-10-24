@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import Link from "next/link";
 
-// import { client } from "E:/ecommerce/ctrlaltelite/lib/client";
-//import { HeadBanner } from "E:/ecommerce/ctrlaltelite/components";
+// import { client } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/lib/client";
+//import { HeadBanner } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/components";
 
 const shoesize = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 const clothingsize = ["XS", "S", "M", "L", "XL", "XXL"];
@@ -18,8 +18,50 @@ function sizeType() {
     );
   }
 }
+//
 
-const Sell = (sizeType) => (
+function Sell() { 
+  const [predictedPrice, setPredictedPrice] = useState(null);
+
+  const handleSubmit = async (e) =>{
+    e.preventDefault(); 
+
+    const formData = new FormData(document.getElementById("item-info-form"));
+
+    //covert formData to JSON object
+    const formDataObject ={};
+    console.log("Form data Original:", formData);
+    formData.forEach((value, key) => {
+      formDataObject[key] = value;
+    });
+
+    //to send the formData to the server.js file:
+    try{
+      console.log("Form Data Object:",formDataObject);
+      const response = await fetch("http://localhost:4000/api/submit", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(formDataObject),
+      });
+
+      if (response.ok){
+        const data = await response.json(); //parse the JSON response
+        // document.getElementById("predicted-price").textContent = (`Predicted Price is: R${data.predictedPrice}`);
+        setPredictedPrice(`Predicted Price: ${data.pricePredicted}`);
+        console.log("Predicted Price successfully");
+      }else{
+        //error occured
+        console.log("Error occured when sending form data to server.")
+
+      }//end of if response.ok
+
+
+    } catch (error){
+      console.error("Error sending the Form data: ", error);
+    } //end of try-catch
+
+  };//end of handleSubmit method
+  return(
   <div>
     <html lang="en">
       <head>
@@ -151,7 +193,7 @@ const Sell = (sizeType) => (
 
         {/* <!---input form---> */}
         <div class="container">
-          <form class="row needs-validation" novalidate>
+          <form id="item-info-form" onSubmit={handleSubmit} class="row needs-validation" novalidate>
             <div class="col-lg-6 col-md-12">
               {/* <!---first column asks users to upload images--> */}
 
@@ -185,6 +227,7 @@ const Sell = (sizeType) => (
                   id="sellName"
                   placeholder="Enter your name"
                   required
+                  name="userName"
                 />
                 <div class="valid-feedback">Looks good!</div>
               </div>
@@ -197,6 +240,7 @@ const Sell = (sizeType) => (
                   class="form-control"
                   id="sellSurname"
                   placeholder="Enter your surname"
+                  name="userSurname"                  
                 />
               </div>
               <div class="mb-3">
@@ -208,6 +252,7 @@ const Sell = (sizeType) => (
                   class="form-control"
                   id="sellerEmail1"
                   aria-describedby="emailHelp"
+                  name="userEmail"
                 />
                 <div id="emailHelp" class="form-text">
                   please enter a valid email address for us to contact you.
@@ -223,6 +268,7 @@ const Sell = (sizeType) => (
                   class="form-control"
                   id="itemName"
                   placeholder="Enter the name of the item"
+                  name="itemName"
                 />
               </div>
               <div class="mb-3">
@@ -233,6 +279,7 @@ const Sell = (sizeType) => (
                   class="form-control"
                   id="itemDescription"
                   rows="3"
+                  name="itemDescription"
                 ></textarea>
               </div>
               <div class="mb-3">
@@ -245,6 +292,7 @@ const Sell = (sizeType) => (
                       id="selectGender"
                       class="form-select form-select-sm"
                       aria-label="Small select example"
+                      name="itemGender"
                     >
                       {/* <!-- <option selected>Open this select menu</option> --> */}
                       <option value="1">Male</option>
@@ -252,7 +300,7 @@ const Sell = (sizeType) => (
                       <option value="3">Unisex</option>
                     </select>
 
-                    <label for="itemSize" class="form-label"></label>
+                    {/* <label for="itemSize" class="form-label"></label> */}
                     <label for="itemType" class="form-label">
                       Item type
                     </label>
@@ -260,11 +308,12 @@ const Sell = (sizeType) => (
                       id="selecttype"
                       class="form-select form-select-sm"
                       aria-label="Small select example"
+                      name="itemType"
                     >
                       {/* <!-- <option selected>Open this select menu</option> --> */}
-                      <option value="1">Top</option>
-                      <option value="2">Pants</option>
-                      <option value="3">shoe</option>
+                      <option value="top">Top</option>
+                      <option value="pants">Pants</option>
+                      <option value="shoe">shoe</option>
                     </select>
 
                     <label for="itemSize" class="form-label">
@@ -275,14 +324,15 @@ const Sell = (sizeType) => (
                       id="selectsize"
                       class="form-select form-select-sm"
                       aria-label="Small select example"
+                      name="itemSize"
                     >
-                      <option value="1">XXS</option>
-                      <option value="2">XS</option>
-                      <option value="3">S</option>
-                      <option value="4">M</option>
-                      <option value="5">L</option>
-                      <option value="6">XL</option>
-                      <option value="7">XXL</option>
+                      <option value="XXS">XXS</option>
+                      <option value="XS">XS</option>
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                      <option value="XXL">XXL</option>
                       {/* <script>
                         siz = document.getElementById('selectsize');
                         siz.addEventListener("change", sizeType); sizeType();
@@ -292,14 +342,15 @@ const Sell = (sizeType) => (
                   </div>
 
                   <div class="col">
-                    <label for="itemName" class="form-label">
+                    <label for="itemBrand" class="form-label">
                       Brand
                     </label>
                     <input
                       type="text"
                       class="form-control"
-                      id="itemName"
+                      id="itemBrand"
                       placeholder="Enter the brand of the item"
+                      name="itemBrand"
                     />
 
                     <label for="itemCondition" class="form-label">
@@ -313,6 +364,7 @@ const Sell = (sizeType) => (
                       MAX="5"
                       VALUE="5"
                       SIZE="6"
+                      name="itemCondition"
                     />
 
                     <label for="itemPrice" class="form-label">
@@ -323,26 +375,26 @@ const Sell = (sizeType) => (
                       class="form-control"
                       id="itemPrice"
                       placeholder="Price of item"
+                      name="itemPrice"
                     />
                   </div>
-                </div>
-              </div>
-
-              <div class="form-control">
+                  <div>
                 <label>Try our new AI feature.</label>
                 <label>
                   This feature will genarate a suggested price range for your
                   item to sell your item quickly and maximise your proffits
                 </label>
-                <button class="btn btn-outline-success b-3">
+                <button id="btn-predict-price" type="submit" class="btn btn-outline-success b-3">
                   genarate price
                 </button>
-                <label></label>{" "}
+                <label id="predicted-price">{predictedPrice}</label>
                 {/* The modle output should be disaplayed here **************************************************************  */}
+              </div>
+                </div>{/*End of row */}
               </div>
 
               <div class="mb-3">
-                <form method="post" />
+                
                 <button
                   class="btn btn-outline-success b-3"
                   onclick="sendEmail()"
@@ -350,8 +402,8 @@ const Sell = (sizeType) => (
                   Submit
                 </button>
               </div>
-            </div>
-          </form>
+            </div> {/** end of Div for 2nd col */}
+          </form> {/*End of form */}
         </div>
 
         <script
@@ -363,5 +415,6 @@ const Sell = (sizeType) => (
     </html>
   </div>
 );
+}//end of sell function
 
 export default Sell;

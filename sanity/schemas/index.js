@@ -1,4 +1,4 @@
-import product from '/ecommerce/ctrlaltelite/sanity/schemas/product'
-import banner from '/ecommerce/ctrlaltelite/sanity/schemas/banner'
+import product from 'D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/sanity/schemas/product'
+import banner from 'D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/sanity/schemas/banner'
 
 export const schemaTypes = [product, banner]

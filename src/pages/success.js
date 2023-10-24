@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { BsBagCheckFill } from "react-icons/bs";
 
-import { useStateContext } from "E:/ecommerce/ctrlaltelite/context/StateContext.js";
+import { useStateContext } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/context/StateContext.js";
 
 const Success = () => {
   const { setCartItems, setTotalPrice, setTotalQuantities } = useStateContext();

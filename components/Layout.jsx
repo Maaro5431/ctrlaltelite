@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import Navbar from "E:/ecommerce/ctrlaltelite/components/Navbar.jsx";
+import Navbar from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/components/Navbar.jsx";
 
 const Layout = ({ children,bannerData }) => {
   return (

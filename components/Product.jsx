@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { urlFor } from 'E:/ecommerce/ctrlaltelite/lib/client.js';/*change path*/
+import { urlFor } from 'D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/lib/client.js';/*change path*/
 
 const Product = ({ product: { image, name, slug, price }}) => {
     return (

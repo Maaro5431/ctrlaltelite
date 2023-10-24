@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { client } from 'E:/ecommerce/ctrlaltelite/lib/client';/*change path*/
-import  Product  from 'E:/ecommerce/ctrlaltelite/components/Product';/*change path*/
+import { client } from 'D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/lib/client';/*change path*/
+import  Product  from 'D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/components/Product';/*change path*/
 
 const Home = ({ products }) => (
   <div>

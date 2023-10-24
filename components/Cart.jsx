@@ -7,7 +7,7 @@ import {
 import { TiDeleteOutline } from "react-icons/ti";
 import toast from "react-hot-toast";
 
-import { useStateContext } from "E:/ecommerce/ctrlaltelite/context/StateContext";
+import { useStateContext } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/context/StateContext";
 import { urlFor } from "../lib/client";
 
 const Cart = () => {

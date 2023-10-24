@@ -5,9 +5,9 @@ import {
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
-import { Product } from "/ecommerce/ctrlaltelite/components";
-import { client, urlFor } from "/ecommerce/ctrlaltelite/lib/client";
-import { useStateContext } from "E:/ecommerce/ctrlaltelite/context/StateContext";
+import { Product } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/components";
+import { client, urlFor } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/lib/client";
+import { useStateContext } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/context/StateContext";
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;

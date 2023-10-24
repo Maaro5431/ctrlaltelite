@@ -11,7 +11,7 @@ import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schema'
 
 export default defineConfig({
-  basePath: '/E/ecommerce/ctrlaltelite',
+  basePath: '/ED:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite',
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder

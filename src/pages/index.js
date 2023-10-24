@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
-import { client } from "E:/ecommerce/ctrlaltelite/lib/client";
-import { Product, HeadBanner } from "E:/ecommerce/ctrlaltelite/components";
+import { client } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/lib/client";
+import { Product, HeadBanner } from "D:/UWC/2023 Modules/Computer Science/Software Engineering/Capstone Assignment/ctrlaltelite/components";
 
 const Home = ({ products, bannerData }) => ( 
   <div class = 'welcome-div'>
