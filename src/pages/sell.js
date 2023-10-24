@@ -21,8 +21,22 @@ function sizeType() {
 //
 
 function Sell() { 
+  const [imagePreview, setImagePreview] = useState(null); 
   const [predictedPrice, setPredictedPrice] = useState(null);
 
+  //to handle the image upload
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file){
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file)
+    }
+  }; //end of handleImageChange
+
+  //to handle form submission for prirce prediction
   const handleSubmit = async (e) =>{
     e.preventDefault(); 
 
@@ -213,7 +227,9 @@ function Sell() {
                   id="itemImages"
                   accept="image/*"
                   multiple
+                  onChange={handleImageChange}
                 />
+                {imagePreview && <img src={imagePreview} alt="Preview"/>}
               </div>
             </div>
             <div class="col-lg-6 col-md-12">
